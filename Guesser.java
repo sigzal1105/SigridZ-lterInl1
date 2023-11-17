@@ -61,11 +61,13 @@ public class Guesser {
    * a valid reply. Return the String that you read from
    * the player.
    */
-  private String getReply() {
-    String reply = null;
+  private String getReply(String reply) {
     // Write code here which reads a String from the console.
     // As long as it is not a valid reply (one of "T" and "F")
     // write an error message, and read a new reply.
+    if (!reply.equals("T") || !reply.equals("F")) {
+      throw new IllegalArgumentException();
+    }
     // When you have gotten a valid reply, return it.
     return reply;
   }
