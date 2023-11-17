@@ -1,6 +1,3 @@
-import java.io.Console;
-import java.util.Scanner;
-
 /**
  * Assignment 1 - Guessing Game
  * 
@@ -62,13 +59,16 @@ public class Guesser {
    * the player.
    */
   private String getReply() {
-    String reply = null;
-    // Write code here which reads a String from the console.
-    // As long as it is not a valid reply (one of "T" and "F")
-    // write an error message, and read a new reply.
-    //if (!reply.equals("T") || !reply.equals("F")) {
-      //throw new IllegalArgumentException();
-    //}
+    String reply = System.console().readLine();
+    while (!reply.equals("T") && !reply.equals("F")) {
+
+      // Write code here which reads a String from the console.
+      reply = System.console().readLine();
+      // As long as it is not a valid reply (one of "T" and "F")
+      // write an error message, and read a new reply.
+      System.out.println("Invalid answer, please reply with T for true or F for false");
+    }
+
     // When you have gotten a valid reply, return it.
     return reply;
   }
