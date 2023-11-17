@@ -1,4 +1,5 @@
 import java.io.Console;
+import java.util.Scanner;
 
 /**
  * Assignment 1 - Guessing Game
@@ -35,8 +36,11 @@ public class Guesser {
    * rules() method, next the doGuesses() method.
    */
   public void start() {
+    Guesser guess = new Guesser(low, high);
     // call the rules method here
+    guess.rules();
     // call the doGuesses() method here
+    guess.doGuesses();
   }
 
   private void rules() {
