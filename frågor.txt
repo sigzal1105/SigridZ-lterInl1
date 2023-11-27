@@ -1,0 +1,47 @@
+Jag siktar på VG.
+
+1. När använder man add respektive commit?
+
+Man använder add när man ska lägga till en fil i staging area. 
+Det som ligger is staging area är det som kommer "commitas" när man använder kommandot commit.
+
+När något commitas så blir det som en "save-point" i ditt repository där du kan navigera mellan olika
+versioner av ditt projekt.
+
+2. Vad är pull respektive push?
+
+git push laddar upp nya commits till remote repository så att andra användare kan se och använda det 
+medans pull laddar hem förändringar från andra som man själv kan se och använda.
+
+3. När använder man log respektive status?
+
+Med git status får man reda på vad som hänt, eller skulle kunna hända i ditt repository. 
+Man kan t.ex. se om något har skapats, om något har blivit modifierat, vad som har lagts till 
+i staging area, vilken branch man är på m.m. Man vill använda det för att se om det finns något
+man behöver göra med sitt repository.
+
+Med git log kan man se sin commit-historik med dess meddelanden från den aktuella branchen. Senaste commit
+visas först. Alla commits har en commit-sträng. Man vill använda denna för att se vad man har gjort i sina
+commits.
+
+4. Vad är Git branch och varför är de viktiga?
+
+En git branch är som det låter, en ny gren i historik-trädet. Detta gör att man kan arbeta med något nytt 
+utan att behöva ändra på sitt main repository. Man kan ha flera branches samtidigt och flera människor 
+kan jobba med var sin samtidigt. Med merge kan man slå ihop sin branch med sin main om man är nöjd med sin nya feature.
+
+Svar på VG fråga:
+
+git checkout(restore): Detta kommandot är bra för att kolla på gamla commits utan att ändra och även byta till en annan branch.
+Om man skriver kommandot git checkout(restore) och commitens ID gör det att man kan gå tillbaka till en tidigare commit med
+givet ID. Dock hamnar man i ett så kallat "'detatched HEAD' state" alltså att HEAD flyttas till committen vilket gör 
+att alla förändringar som görs härifrån inte kommer committas till en branch. Sedan med git checkout(restore) branch_name så kan
+man byta till en annan branch i sitt repository.
+
+git revert: Detta kommandot gör att man ångrar en commit. T.ex. man vill ångra en feature man lade till innan. Då kan man 
+skriva git revert och committens ID och då kommer det skapas en ny commit där ändringarna du gjorde i commiten du 
+revertade är borta. Committen du revertade finns fortfarande kvar i historiken när man använder detta kommado. Detta gör
+att historik inte går förlorad och andra kan se att du tagit bort något. Bra i en public branch.
+
+git reset: Detta kommandot raderar en commit och dess historik permanent. Det finns olika flaggor till detta kommandot.
+git reset --mixed. Denna flagga är default alltså samma som att bara skriva git reset.
