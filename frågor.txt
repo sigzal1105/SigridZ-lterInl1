@@ -44,4 +44,14 @@ revertade är borta. Committen du revertade finns fortfarande kvar i historiken 
 att historik inte går förlorad och andra kan se att du tagit bort något. Bra i en public branch.
 
 git reset: Detta kommandot raderar en commit och dess historik permanent. Det finns olika flaggor till detta kommandot.
-git reset --mixed. Denna flagga är default alltså samma som att bara skriva git reset.
+
+git reset --mixed. Denna flagga är default alltså samma som att bara skriva git reset. T.ex. Om jag skriver git reset 
+på 62ddecf "Added frågor.txt with contents" så kommer committen tas bort och den unstagas. Men ändringen finns fortfarande
+i working directory. Detta är bra om man t.ex. vill ta bort en fil som inte skulle med så kan man ta bort commit, unstaga ändra 
+och sedan add och commit igen.
+
+git reset --soft. Denna tar tar bort en commit, men den ligger fortfarande i staging arean och är redo att commitas.
+Detta är bra om man t.ex. stavat fel.
+
+git reset --hard. Denna tar bort allt. Ändringarna finns inte kvar i working directory och historiken tas bort. Det är som om
+den aldrig fanns. Detta är bra om man vill ta bort något och inte ha historik. Bättre i ett private repository.
