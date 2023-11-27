@@ -33,17 +33,23 @@ kan jobba med var sin samtidigt. Med merge kan man slå ihop sin branch med sin 
 Svar på VG fråga:
 
 git checkout(restore): Detta kommandot är bra för att kolla på gamla commits utan att ändra och även byta till en annan branch.
-T.ex. Om jag vill kolla på när jag först skapade Guesser.java. Då kan jag skriva git checkout 
+T.ex. Om jag vill kolla på när jag först skapade Guesser.java. Då kan jag skriva git checkout fe6086a för att komma dit. Om jag nu
+kör ls så finns bara den filen där. Det ser ut som det gjorde när jag skapade filen. 
 
 Alltså om man skriver kommandot git checkout(restore) och commitens hash-ID gör det att man kan gå tillbaka till en tidigare commit med
 givet ID. Dock hamnar man i ett så kallat "'detatched HEAD' state" alltså att HEAD flyttas till committen vilket gör 
 att alla förändringar som görs härifrån inte kommer committas till en branch. Sedan med git checkout(restore) branch_name så kan
 man byta till en annan branch i sitt repository.
 
-git revert: Detta kommandot gör att man ångrar en commit. T.ex. man vill ångra en feature man lade till innan. Då kan man 
-skriva git revert och committens ID och då kommer det skapas en ny commit där ändringarna du gjorde i commiten du 
-revertade är borta. Committen du revertade finns fortfarande kvar i historiken när man använder detta kommado. Detta gör
-att historik inte går förlorad och andra kan se att du tagit bort något. Bra i en public branch.
+
+git revert: Detta kommandot gör att man ångrar en commit. T.ex. Om jag inte vill inte ha kvar min run_game.sh
+då kan jag köra git revert 7f8863f. Nu är den filen borta, men finns kvar i historiken. HEAD ligger nu på en ny commit
+där ändringarna i 7f8863f har ångrats.
+ 
+Alltså om man vill ångra en feature man lade till innan. Då kan man skriva git revert och committens hash-ID och då kommer 
+det skapas en ny commit där ändringarna du gjorde i commiten du revertade är borta. Committen du revertade 
+finns fortfarande kvar i historiken när man använder detta kommado. Detta gör att historik inte går förlorad 
+och andra kan se att du tagit bort något. Bra i en public branch.
 
 git reset: Detta kommandot raderar en commit och dess historik permanent. Det finns olika flaggor till detta kommandot.
 
